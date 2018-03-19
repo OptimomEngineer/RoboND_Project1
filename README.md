@@ -124,11 +124,11 @@ Finally, I have issues when I am stuck on slightly elevated terrain, I would lik
 I ran the simulator in autonomous mode on two different graphical choices.
 See picture below:
 
-![Initial Simulator Settings][image6]
+![Initial Simulator Settings, first choice][image6]
 
 First I ran the testing on the lower graphics but I wanted more of a challenge so then I ran to test fidelity on the higher graphics.
 
-![Initial Simulator Settings][image7]
+![Initial Simulator Settings, second choice][image7]
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
 
