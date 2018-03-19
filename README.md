@@ -38,6 +38,7 @@
 I first started the Rover simulator and recorded a stream of data by moving the robot through the terrain.
 I ran the functions provided in the notebook both on test images and also on a random image that I pulled from the recorded data.
 Here is a sample of the image I pulled from recorded data along with the two test images I used.
+
 ![Initial Samples] [image1]
 
 After that I applied the given Perspective Transform and show here that the rock sample also shows a nice blip in the transform.
@@ -109,6 +110,8 @@ I left the rest of the code as is and I saved a video under the name: **movie_dp
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 I filled out the perception_step() file in the perception.py script by using the code I had previously written and refering to the drive_rover.py for the Rover Class descriptions. This helped me figure out how to address the image and the position to allow tranformation, masking and assigned mapping for the terrain, rocks and obstacles.
 
+I was able to continously stay above 60% fidelity and map over 75% of the terrain with an average of 3 rocks identified.
+I did get stuck several times and tried to modify the code to help the robot become "unstuck" and continue on its mission.
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.
 For the decision_step() I first played with the RoverSim in autonomous mode to see what the issues were. 
 
@@ -120,8 +123,11 @@ Finally, I have issues when I am stuck on slightly elevated terrain, I would lik
 
 I ran the simulator in autonomous mode on two different graphical choices.
 See picture below:
+
 ![Initial Simulator Settings] [image6]
+
 First I ran the testing on the lower graphics but I wanted more of a challenge so then I ran to test fidelity on the higher graphics.
+
 ![Initial Simulator Settings] [image7]
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
