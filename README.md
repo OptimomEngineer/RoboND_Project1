@@ -21,7 +21,7 @@
 
 [//]: # (Image References)
 
-[image1]: ./misc/initial_samples.png
+[image1]: /misc/initial_samples.png
 [image2]: ./misc/Pers_transform.png
 [image3]: ./misc/thresh1.png 
 [image4]: ./misc/thresh2.png
@@ -132,8 +132,6 @@ First I ran the testing on the lower graphics but I wanted more of a challenge s
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
 
-
-non
 
 
 
