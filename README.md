@@ -26,8 +26,8 @@
 [image3]: ./misc/thresh1.png 
 [image4]: ./misc/thresh2.png
 [image5]: ./misc/arrow.png
-[image6]: ./misc/simulator_settings1.png
-[image7]: ./misc/simulator_settings3.png
+[image6]: ./misc/simulator_settings.png
+[image7]: ./misc/simulator_settings.png
 
 
 ## Writeup / README
@@ -111,27 +111,28 @@ I left the rest of the code as is and I saved a video under the name: **movie_dp
 I filled out the perception_step() file in the perception.py script by using the code I had previously written and refering to the drive_rover.py for the Rover Class descriptions. This helped me figure out how to address the image and the position to allow tranformation, masking and assigned mapping for the terrain, rocks and obstacles.
 
 I was able to continously stay above 60% fidelity and map over 75% of the terrain with an average of 3 rocks identified.
-I did get stuck several times and tried to modify the code to help the robot become "unstuck" and continue on its mission.
+I did get stuck several times in front of an obstacle and/or circling and tried to modify the code to help the robot become "unstuck" and continue on its mission. I mostly modified the perception.py to overcome this issue. Thought I did add some limiting code in the decision tree which I talk about in the next section.
+I also added thresholds that would not validate transformed images for mapping using the roll and pitch angles, this helped the fidelity of map tracking stay high.
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.
-For the decision_step() I first played with the RoverSim in autonomous mode to see what the issues were. 
+For the decision_step() I first played with the RoverSim in autonomous mode to see what the issues were. I drew out a tree on paper to further understand how the current tree given by the course team worked. I realized we could fix some of the code to help the robot navigate the terrain further.
+For example, if the robot is stopped and there is no clear path forward, what is the robot to do? I suggested the robot turn until there is clear vision, however, I was not able to create more sophisticated code by the due date. I would like to work on this further.
 
 First off, I lose fidelity when the rover is turning. I know this is due to my coding where I apply a filter when I have ambiguity of wall or navigable terrain. That filter is causing a disruption of continuous mapping allowed and I would like to fix that. However, for the assignment, the robot still passes mapping 40% at 60% fidelity.
 
-Secondly, I am not approaching each rock when I recognize it, I would like to add decisions to come close to the rock so to be able to pick it up. I can do this by using the masked filter of the rock to navigate toward the rock. I tried to add some coding into the decision tree so that when i saw a rock, I work go into rock mode and stop and pick up the rock. This code only worked twice when the robot was slow enough to engage the code to pick up the rock.
+Secondly, I am not approaching each rock when I recognize it, I would like to add decisions to come close to the rock so to be able to pick it up. I can do this by using the masked filter of the rock to navigate toward the rock. I tried to add some coding into the decision tree so that when the robot saw a thresholded binary image of a rock; it would go into rock mode and stop and pick up the rock. This code only worked twice when the robot was slow enough to engage the code to pick up the rock.
 
-Finally, I have issues when I am stuck on slightly elevated terrain, I would like to propose to the robot to reverse and turn away from obstacles and try to go forward again. I did try to create a situation for the robot to turn around if the number of max mapped pixels in a given array was larger than 1000. This seemed to get the robot out of a bad situation such as circling, stuck on or at a obstacle and my next goal was to extend that code to help the robot not repeat its path.
+Finally, I have issues when I am stuck on slightly elevated terrain, I would like to propose to the robot to reverse and turn away from obstacles and try to go forward again. I did try to create a situation for the robot to turn around if the number of max mapped pixels in a given array was larger than 1000. This seemed to get the robot out of a bad situation such as circling, stuck on or at a obstacle and my next goal was to extend that code to help the robot not repeat its path. I did this by first printing out (in supporting_functions.py) the max value of the number of times one pixel was mapped in a particular rover image. = #print(np.amax(Rover.worldmap[:, :, 2]))  Then I was able to set a threshold and see the type of masking the robot was seeing along with the max value. This caused me to rethink my obstacle threshold and keep it to a low number close to a black color. It helped the robot stay out of a loop and also to navigate more terrain.
 
-I also added thresholds that would not validate transformed images for mapping using the roll and pitch angles, this helped the fidelity of map tracking stay high.
+Occasionally the robot has gotten stuck or ran in a funny loop; this happens one out of several launches and I hope to completely eliminate that as I learn more coding techniques and spend more time thinking of the problem/solution.
 
 I ran the simulator in autonomous mode on two different graphical choices.
-See pictures below for settings:
+See picture below:
 ![Initial Simulator Settings][image6]
-
 First I ran the testing on the lower graphics but I for more of a challenge- I ran to test fidelity on the higher graphics which allowed me to add various bits of coding to improve the robot's capability.
-
 ![Initial Simulator Settings][image7]
 
+Overall I really enjoyed this project, it was my first programming experience with python and took me many hours but I enjoyed taking the extra time to learn, can't wait to improve upon this! My goal is to have the robot pick up all rocks and return back to center.
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
 
 
