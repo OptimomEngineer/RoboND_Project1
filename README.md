@@ -126,9 +126,11 @@ I also added thresholds that would not validate transformed images for mapping u
 
 I ran the simulator in autonomous mode on two different graphical choices.
 See picture below:
-![Initial Simulator Settings] [image6]
+![Initial Simulator Settings][image6]
+
 First I ran the testing on the lower graphics but I for more of a challenge- I ran to test fidelity on the higher graphics which allowed me to add various bits of coding to improve the robot's capability.
-![Initial Simulator Settings] [image7]
+
+![Initial Simulator Settings][image7]
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
 
