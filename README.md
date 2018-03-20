@@ -38,7 +38,7 @@
 I first started the Rover simulator and recorded a stream of data by moving the robot through the terrain.
 I ran the functions provided in the notebook both on test images and also on a random image that I pulled from the recorded data.
 Here is a sample of the image I pulled from recorded data along with the two test images I used.
-![Initial Samples] [image1]
+![Initial Samples][image1]
 
 After that I applied the given Perspective Transform and show here that the rock sample also shows a nice blip in the transform.
 
@@ -47,7 +47,7 @@ After that I applied the given Perspective Transform and show here that the rock
 Once we did that, I wanted to apply a mask, so I went with an upper and lower limit. The transformed pictures that I passed into the function were assigned arguments based on rock/terrain vision information. Here is a sample. In this sample we can see four different masks applied:
 
 
-![Threshold Masking] [image3]
+![Threshold Masking][image3]
 
 
 Since the color of the rock is gold not yellow, I added 50 to blue channel in upper limit. 
@@ -78,7 +78,7 @@ Here you see a wonderful mask for the walls at the top right pictures; however, 
 
 After that I changed coordinate systems and applied the given arrow to the navigatible terrain available in front of the robot.
 
-![Changed Coordinates with Arrow] [image5]
+![Changed Coordinates with Arrow][image5]
 
 
 
