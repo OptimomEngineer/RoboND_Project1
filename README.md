@@ -116,7 +116,7 @@ I also added thresholds that would not validate transformed images for mapping u
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.
 For the decision_step() I first played with the RoverSim in autonomous mode to see what the issues were. I drew out a tree on paper to further understand how the current tree given by the course team worked. I realized we could fix some of the code to help the robot navigate the terrain further.
-For example, if the robot is stopped and there is no clear path forward, what is the robot to do? I suggested the robot turn until there is clear vision, however, I was not able to create more sophisticated code by the due date. I would like to work on this further.
+For example, if the robot is circling and mapping the same pixels several hundred times, how can we get the robot out from there? TThere are many possible solutions to this: tracking walls as to not circle and repeat mapping, or perhaps limiting and using starting position as a "reset" etc. his is something I would like to continue working on. 
 
 First off, I lose fidelity when the rover is turning. I know this is due to my coding where I apply a filter when I have ambiguity of wall or navigable terrain. That filter is causing a disruption of continuous mapping allowed and I would like to fix that. However, for the assignment, the robot still passes mapping 40% at 60% fidelity.
 
