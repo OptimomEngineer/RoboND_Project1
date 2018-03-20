@@ -125,7 +125,7 @@ Finally, I have issues when I am stuck on slightly elevated terrain, I would lik
 I also added thresholds that would not validate transformed images for mapping using the roll and pitch angles, this helped the fidelity of map tracking stay high.
 
 I ran the simulator in autonomous mode on two different graphical choices.
-See picture below:
+See pictures below for settings:
 ![Initial Simulator Settings][image6]
 
 First I ran the testing on the lower graphics but I for more of a challenge- I ran to test fidelity on the higher graphics which allowed me to add various bits of coding to improve the robot's capability.
