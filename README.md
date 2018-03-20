@@ -108,7 +108,7 @@ I left the rest of the code as is and I saved a video under the name: **movie_dp
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
 
-I filled out the perception_step() file in the perception.py script by using the code I had previously written and refering to the drive_rover.py for the Rover Class descriptions. This helped me figure out how to address the image and the position to allow tranformation, masking and assigned mapping for the terrain, rocks and obstacles.
+I filled out the perception_step() file in the perception.py script by using the code I had previously written and refering to the drive_rover.py for the Rover Class descriptions. However, after playing with the code (as you will read below), I changed the threshold of the walls to rgb_upper_limit(30,30,30). This helped me figure out how to address the image and the position to allow tranformation, masking and assigned mapping for the terrain, rocks and obstacles.
 
 I was able to continously stay above 60% fidelity and map over 75% of the terrain with an average of 3 rocks identified.
 I did get stuck several times in front of an obstacle and/or circling and tried to modify the code to help the robot become "unstuck" and continue on its mission. I mostly modified the perception.py to overcome this issue. Thought I did add some limiting code in the decision tree which I talk about in the next section.
