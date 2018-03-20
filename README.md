@@ -26,8 +26,8 @@
 [image3]: ./misc/thresh1.png 
 [image4]: ./misc/thresh2.png
 [image5]: ./misc/arrow.png
-[image6]: ./misc/simulator_settings.png
-[image7]: ./misc/simulator_settings.png
+[image6]: ./misc/simulator_settings1.png
+[image7]: ./misc/simulator_settings3.png
 
 
 ## Writeup / README
