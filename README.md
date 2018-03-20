@@ -21,7 +21,7 @@
 
 [//]: # (Image References)
 
-[image1]: /misc/initial_samples.png
+[image1]: ./misc/initial_samples.png
 [image2]: ./misc/Pers_transform.png
 [image3]: ./misc/thresh1.png 
 [image4]: ./misc/thresh2.png
@@ -38,8 +38,7 @@
 I first started the Rover simulator and recorded a stream of data by moving the robot through the terrain.
 I ran the functions provided in the notebook both on test images and also on a random image that I pulled from the recorded data.
 Here is a sample of the image I pulled from recorded data along with the two test images I used.
-
-![Initial Samples][image1]
+![Initial Samples] [image1]
 
 After that I applied the given Perspective Transform and show here that the rock sample also shows a nice blip in the transform.
 
@@ -48,7 +47,7 @@ After that I applied the given Perspective Transform and show here that the rock
 Once we did that, I wanted to apply a mask, so I went with an upper and lower limit. The transformed pictures that I passed into the function were assigned arguments based on rock/terrain vision information. Here is a sample. In this sample we can see four different masks applied:
 
 
-![Threshold Masking][image3]
+![Threshold Masking] [image3]
 
 
 Since the color of the rock is gold not yellow, I added 50 to blue channel in upper limit. 
@@ -79,7 +78,7 @@ Here you see a wonderful mask for the walls at the top right pictures; however, 
 
 After that I changed coordinate systems and applied the given arrow to the navigatible terrain available in front of the robot.
 
-![Changed Coordinates with Arrow][image5]
+![Changed Coordinates with Arrow] [image5]
 
 
 
@@ -108,29 +107,32 @@ I left the rest of the code as is and I saved a video under the name: **movie_dp
 ### Autonomous Navigation and Mapping
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) functions in the autonomous mapping scripts and an explanation is provided in the writeup of how and why these functions were modified as they were.
+
 I filled out the perception_step() file in the perception.py script by using the code I had previously written and refering to the drive_rover.py for the Rover Class descriptions. This helped me figure out how to address the image and the position to allow tranformation, masking and assigned mapping for the terrain, rocks and obstacles.
 
 I was able to continously stay above 60% fidelity and map over 75% of the terrain with an average of 3 rocks identified.
 I did get stuck several times and tried to modify the code to help the robot become "unstuck" and continue on its mission.
+
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.
 For the decision_step() I first played with the RoverSim in autonomous mode to see what the issues were. 
 
 First off, I lose fidelity when the rover is turning. I know this is due to my coding where I apply a filter when I have ambiguity of wall or navigable terrain. That filter is causing a disruption of continuous mapping allowed and I would like to fix that. However, for the assignment, the robot still passes mapping 40% at 60% fidelity.
 
-Secondly, I am not approaching each rock when I recognize it, I would like to add decisions to come close to the rock so to be able to pick it up. I can do this by using the masked filter of the rock to navigate toward the rock.
+Secondly, I am not approaching each rock when I recognize it, I would like to add decisions to come close to the rock so to be able to pick it up. I can do this by using the masked filter of the rock to navigate toward the rock. I tried to add some coding into the decision tree so that when i saw a rock, I work go into rock mode and stop and pick up the rock. This code only worked twice when the robot was slow enough to engage the code to pick up the rock.
 
-Finally, I have issues when I am stuck on slightly elevated terrain, I would like to propose to the robot to reverse and turn away from obstacles and try to go forward again.
+Finally, I have issues when I am stuck on slightly elevated terrain, I would like to propose to the robot to reverse and turn away from obstacles and try to go forward again. I did try to create a situation for the robot to turn around if the number of max mapped pixels in a given array was larger than 1000. This seemed to get the robot out of a bad situation such as circling, stuck on or at a obstacle and my next goal was to extend that code to help the robot not repeat its path.
+
+I also added thresholds that would not validate transformed images for mapping using the roll and pitch angles, this helped the fidelity of map tracking stay high.
 
 I ran the simulator in autonomous mode on two different graphical choices.
 See picture below:
-
-![Initial Simulator Settings, first choice][image6]
-
-First I ran the testing on the lower graphics but I wanted more of a challenge so then I ran to test fidelity on the higher graphics.
-
-![Initial Simulator Settings, second choice][image7]
+![Initial Simulator Settings] [image6]
+First I ran the testing on the lower graphics but I for more of a challenge- I ran to test fidelity on the higher graphics which allowed me to add various bits of coding to improve the robot's capability.
+![Initial Simulator Settings] [image7]
 
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
+
+
 
 
 
