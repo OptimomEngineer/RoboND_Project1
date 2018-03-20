@@ -55,6 +55,8 @@ def update_rover(Rover, data):
       'picking_up:', data["picking_up"], 'sending pickup:', Rover.send_pickup, 
       'total time:', Rover.total_time, 'samples remaining:', data["sample_count"], 
       'samples collected:', Rover.samples_collected)
+      #print(np.amax(Rover.worldmap[:, :, 2]))
+      #print(len(Rover.rock_angles))
       # Get the current image from the center camera of the rover
       imgString = data["image"]
       image = Image.open(BytesIO(base64.b64decode(imgString)))
@@ -152,3 +154,6 @@ def create_output_images(Rover):
       encoded_string2 = base64.b64encode(buff.getvalue()).decode("utf-8")
 
       return encoded_string1, encoded_string2
+
+
+
