@@ -133,6 +133,9 @@ First I ran the testing on the lower graphics but I for more of a challenge- I r
 ![Initial Simulator Settings][image7]
 
 Overall I really enjoyed this project, it was my first programming experience with python and took me many hours but I enjoyed taking the extra time to learn, can't wait to improve upon this! My goal is to have the robot pick up all rocks and return back to center.
+
+I'm currently developing a markov chain to improve the robots ability to see a sample rock and approach at a nominal velocity in order to slow down enough to stop and pick up the sample. 
+
 **Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
 
 
